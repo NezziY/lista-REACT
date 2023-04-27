@@ -1,38 +1,73 @@
-.App {
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #faf0d7;
+  font-size: 1.2 rem;
+  height: 100%;
+}
+
+.grid-container > * {
+  border-radius: 4px;
+  padding: 10px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  color: rgb(255, 255, 255);
+  padding: 2rem;
+  grid-area: header;
+  background-color: #e99948;
+  border-radius: 0px 0px 20px 20px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar {
+  grid-area: navbar;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.main{
+  grid-area: main;
+}
+
+.grid-container {
+  display: grid;
+  gap: 10px;
+  grid-template:
+    "header" 180px
+    "navbar" 250px
+    "main"  auto
+}
+
+@media (min-width: 600px) {
+  .grid-container {
+  
+    grid-template:
+    "header header" 150px
+    "navbar main" auto
   }
-  to {
-    transform: rotate(360deg);
+  
+}
+
+@media (min-width: 900px) {
+  .grid-container {
+  
+    grid-template:
+    "header header header" 150px
+    "navbar main main" auto/
+    250px auto 250px;
   }
+  
+}
+
+.tarea-container{
+  height: 100%;
+  background: #a7bcc1;
+  padding: 1em;
+  border-radius: 15px;
 }

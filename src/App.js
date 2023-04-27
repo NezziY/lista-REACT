@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import SetDate from './components/fecha';
+import PomodoroTimer from './components/pomodoro';
+import TaskList from './components/lista-tareas';
 
 function App() {
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <div className='grid-container'>
+          
+        <header className='header'>
+          
+          <SetDate />
+          
+        </header>
+          
+        <aside className='navbar'>
+          <PomodoroTimer />
+        </aside>
+
+        <main className='main'>
+          <div className='tarea-container'>
+            <TaskList />
+            
+          </div>
+        </main> 
+        
+      </div>
+            
     </div>
   );
 }

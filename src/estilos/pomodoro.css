@@ -1,0 +1,29 @@
+.timer {
+    padding: .5em;
+    line-height: 3em;
+    border-radius: 15px;
+    background: #ae8053;
+    color: white;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: .3em;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    margin: 3px;
+    color: white;
+    background-color: #d33d4c ;
+    font-size: .8rem;
+    outline: none;
+    border-radius: 3px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #d46974;
+}
