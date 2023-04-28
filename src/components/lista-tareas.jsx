@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import TareaForm from "./tarea-form";
 import Task from "./tareas";
 import '../estilos/lista-tareas.css';
@@ -13,12 +13,14 @@ function TaskList(){
 
             const tareasActualizadas = [tareaP, ...tareasP];
             setTareasP(tareasActualizadas);
+            actualizarTareasLocalStorage(tareasActualizadas); 
         }    
     }
 
     const eliminarTarea = id => {
         const tareasActualizadas = tareasP.filter(tareasP => tareasP.id !== id);
         setTareasP(tareasActualizadas);
+        eliminarTareaLocalStorage(id);
     }
 
     const completarTarea = id => {
@@ -30,6 +32,24 @@ function TaskList(){
         });
         setTareasP(tareasActualizadas);
     }
+
+    const actualizarTareasLocalStorage = (tareas) => {
+        localStorage.setItem('tareas', JSON.stringify(tareas));
+    };
+
+    const eliminarTareaLocalStorage = id => {
+        const tareasActualizadas = tareasP.filter(tareasP => tareasP.id !== id);
+        setTareasP(tareasActualizadas);
+        localStorage.setItem('tareas', JSON.stringify(tareasActualizadas));
+    }
+
+    useEffect(() => {
+        const tareasGuardadas = JSON.parse(localStorage.getItem('tareas'));
+        if (tareasGuardadas) {
+            setTareasP(tareasGuardadas);
+        }
+    }, []);
+    
         
     return(
         <>
